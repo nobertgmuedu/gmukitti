@@ -1,0 +1,31 @@
+<!-- -*- mode: XML -*- -->
+<!-- run velodyne_pointcloud/CloudNodelet in a nodelet manager for an HDL-32E -->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- **** Start: Robot Description ********************************************************************************************* -->
+  <param name="robot_description" textfile="$(find cartographer_ros)/urdf/kitti.urdf" />
+
+  <!-- **** Start: Robot Description ********************************************************************************************* -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- **** Start: Cartographer             ************************************************************************************ -->
+ <node name="cartographer_offline_node" pkg="cartographer_ros"
+	type="cartographer_offline_node" 
+	args="
+		-configuration_directory $(find gmu)/configuration_files
+		-configuration_basename kitti.lua
+		-urdf_filename $(find gmu)/urdf/kitti.urdf
+		-bag_filenames $(arg bag_filenames)"
+	output="screen">
+	<remap from="points2" to="kitti_points2" />
+        <remap from="imu" to="kitti_imu" />
+  </node>
+
+  <!-- Resolution Default 0.05, raised to 1.00 -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 1.00" />
+
+<!--  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find gmu)/configuration_files/kitti.rviz" />  -->
+
+</launch>
