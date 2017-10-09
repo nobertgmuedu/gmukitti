@@ -20,7 +20,7 @@ Lidar is in center of car, IMU is 0.32m to the driver side (left) of car in Y di
 IMU is also positioned behind Lidar 0.81m (in negative X direction)
 Lidar is at height (z) 1.73m, while IMU is at height 0.93m
 
-I am using the  as the 'base link'
+I am using the the imu as the frame_id for slam.
 
 For convience of google, I have uploaded one of the bag files.
 https://s3.amazonaws.com/kittigmu
