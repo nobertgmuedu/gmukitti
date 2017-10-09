@@ -23,7 +23,8 @@ Lidar is at height (z) 1.73m, while IMU is at height 0.93m
 I am using the the imu as the frame_id for slam.
 
 For convience of google, I have uploaded one of the bag files.
-https://s3.amazonaws.com/kittigmu
+
+https://s3.amazonaws.com/kittigmu/kitti_2011_10_03_drive_0027_synced.bag
 
 There should be 5 loop closures, and if you play the bag through to the end, it should end up roughly where it started.  I have provided a PNG file for reference.
 
