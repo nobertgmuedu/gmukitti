@@ -32,5 +32,6 @@ Any help or suggestions would be apprechated.
 Examples:
 
 roslaunch gmu kitti.launch bag_filenames:=/home/user/kitti.bag
+
 roslaunch gmu kitti_write.launch bag_filenames:=/home/user/kitti.bag pose_graph_filename:=/home/user/kitti.bag.pbstream
 
